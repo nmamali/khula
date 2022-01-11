@@ -6,14 +6,14 @@ export class Schools extends BaseEntity{
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column()
+    @Column({ nullable: false})
     name!: string
-    @Column()
+    @Column({ nullable: false})
     address!: string
-    @Column()
+    @Column({ nullable: false})
     longitude!: string
-    @Column()
+    @Column({ nullable: false})
     latitude!: string
-    @Column()
+    @Column({ nullable: false})
     imageLink!: string
 }

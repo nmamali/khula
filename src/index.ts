@@ -4,6 +4,7 @@ import cors from "cors"
 import {createConnection} from "typeorm";
 import {schema} from "./Schema";
 import {Schools} from "./Entities/Schools";
+import bodyParser from "body-parser";
 const main = async ()=>{
     await createConnection({
         type: "mysql",
@@ -17,6 +18,8 @@ const main = async ()=>{
     const app = express();
     app.use(cors());
     app.use(express.json());
+    app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
+
     app.use("/graphql", graphqlHTTP({
         schema,
         graphiql: true
